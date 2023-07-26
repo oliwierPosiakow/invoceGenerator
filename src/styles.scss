@@ -2,6 +2,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+*:not(mat-icon){
+  font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif;
+}
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #f4f4f4;
+}

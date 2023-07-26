@@ -4,6 +4,7 @@
     <input
       type="text"
       id="name"
+      placeholder="Item name"
       formControlName="name"
       minlength="3"
       maxlength="30"
@@ -20,7 +21,6 @@
       formControlName="count"
       [class.invalid]="itemForm.get('count')?.invalid && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched || isSubmitted)"
     >
-    <span *ngIf="itemForm.get('count')?.invalid && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched || isSubmitted)">Check field</span>
 
     <label for="price">Price:</label>
     <input
@@ -35,15 +35,10 @@
     <button type="submit">Add</button>
   </form>
   <div class="order">
-    <p *ngIf="listaTowarow.length === 0">Add something to the list via form.</p>
+    <p class="info_msg" *ngIf="listaTowarow.length === 0">Add something to the list via form.</p>
     <div class="item" *ngFor ="let item of listaTowarow">
-      <p class="item_field">Name: {{item.name}}</p>
-      <p class="item_field">Count: {{item.count}}</p>
-      <p class="item_field">Price: ${{item.price}}</p>
-      <button class="item_delete">
-        <mat-icon>delete</mat-icon>
-      </button>
+      <app-list-component item=item></app-list-component>
     </div>
   </div>
-  <a routerLink="/invoice">Get an Invoice</a>
+  <button (click)="navigateInvoice()" class="lista_submit">Get an Invoice</button>
 </div>

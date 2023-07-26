@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-list-component',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-component.component.scss']
 })
 export class ListComponentComponent {
-
+  @Input() item: {id: string, name: string, count: number, price: number}
 }

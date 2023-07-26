@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import { v4 as uuidv4 } from 'uuid'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-towarow',
@@ -10,10 +11,10 @@ import { v4 as uuidv4 } from 'uuid'
 export class ListaTowarowComponent {
   itemForm = this.fb.group({
     name: new FormControl('', [Validators.minLength(3), Validators.required]),
-    count: new FormControl(0, [Validators.min(1), Validators.max(100), Validators.required]),
-    price: new FormControl(0, [Validators.min(1), Validators.max(1000000), Validators.required]),
+    count: new FormControl(1, [Validators.min(1), Validators.max(100), Validators.required]),
+    price: new FormControl(1, [Validators.min(1), Validators.max(1000000), Validators.required]),
   })
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
   isSubmitted = false
   listaTowarow: {id: string, name: string, count: number, price: number}[] = []
 
@@ -31,5 +32,9 @@ export class ListaTowarowComponent {
     this.listaTowarowAdd(this.itemForm)
     console.log(this.listaTowarow)
     this.isSubmitted = true
+    this.itemForm.reset()
+  }
+  navigateInvoice(){
+    this.router.navigate(['invoice'], {state: this.listaTowarow} )
   }
 }
