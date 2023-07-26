@@ -1,13 +1,35 @@
 <div class="lista">
   <form class="lista_form" [formGroup]="itemForm" (ngSubmit)="onSubmit()">
     <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name" ngModel minlength="3">
+    <input
+      type="text"
+      id="name"
+      formControlName="name"
+      minlength="3"
+      maxlength="30"
+      [class.invalid]="itemForm.get('name')?.invalid && (itemForm.get('name')?.dirty || itemForm.get('name')?.touched || isSubmitted)"
+    >
 
     <label for="count">Count:</label>
-    <input minLength="3" type="number" id="count" formControlName="count">
+    <input
+      minLength="3"
+      type="number"
+      min="1"
+      max="100"
+      id="count"
+      formControlName="count"
+      [class.invalid]="itemForm.get('count')?.invalid && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched || isSubmitted)"
+    >
 
     <label for="price">Price:</label>
-    <input type="number" id="price" formControlName="price">
+    <input
+      type="number"
+      min="1"
+      max="1000000"
+      id="price"
+      formControlName="price"
+      [class.invalid]="itemForm.get('price')?.invalid && (itemForm.get('price')?.dirty || itemForm.get('price')?.touched || isSubmitted)"
+    >
 
     <button type="submit">Add</button>
   </form>

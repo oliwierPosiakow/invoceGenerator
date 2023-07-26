@@ -25,7 +25,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatIconModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
