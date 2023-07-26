@@ -1,0 +1,14 @@
+<div class="lista">
+  <form class="lista_form" [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" ngModel minlength="3">
+
+    <label for="count">Count:</label>
+    <input minLength="3" type="number" id="count" formControlName="count">
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" formControlName="price">
+
+    <button type="submit">Add</button>
+  </form>
+</div>

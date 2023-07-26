@@ -1,0 +1,17 @@
+.menu{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 30%;
+  padding: 1em 0;
+  background-color: #81819e;
+  &_link{
+    font-size: 1.5rem;
+    &-icon{
+      color: black;
+    }
+  }
+}
