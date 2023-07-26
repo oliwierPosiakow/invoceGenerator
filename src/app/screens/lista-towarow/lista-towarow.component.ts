@@ -14,7 +14,7 @@ export class ListaTowarowComponent {
     price: new FormControl(0, [Validators.min(1), Validators.max(1000000), Validators.required]),
   })
   constructor(private fb: FormBuilder) {}
-  isSubmitted = true
+  isSubmitted = false
   listaTowarow: {id: string, name: string, count: number, price: number}[] = []
 
   listaTowarowAdd = (item: any) => {
@@ -30,6 +30,6 @@ export class ListaTowarowComponent {
     // @ts-ignore
     this.listaTowarowAdd(this.itemForm)
     console.log(this.listaTowarow)
-    this.isSubmitted = false
+    this.isSubmitted = true
   }
 }

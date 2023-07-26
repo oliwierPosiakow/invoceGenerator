@@ -1,9 +1,31 @@
 .lista{
   width: 100%;
+  margin-bottom: 70px;
   &_form{
     display: flex;
     width: 100%;
     flex-direction: column;
+  }
+  .order{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+    gap: 1em;
+    max-height: 300px;
+    overflow: auto;
+    .item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &_field{
+        font-size: 1rem;
+      }
+      &_delete{
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
   }
 }
 
