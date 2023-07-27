@@ -22,6 +22,19 @@
       border: none;
       box-shadow: 2px 3px 5px #a5a5a5;
     }
+    .count-price-wrapper{
+      display: flex;
+      gap: 1em;
+      justify-content: space-between;
+      &_item{
+        display: flex;
+        flex-direction: column;
+        gap: .4em;
+      }
+    }
+    button{
+      margin-top: 1.1em;
+    }
   }
   .order{
     display: flex;

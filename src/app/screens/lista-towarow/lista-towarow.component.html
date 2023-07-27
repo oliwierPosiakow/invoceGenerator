@@ -12,7 +12,7 @@
       [class.invalid]="itemForm.get('name')?.invalid && (itemForm.get('name')?.dirty || itemForm.get('name')?.touched || isSubmitted)"
     >
     <div class="count-price-wrapper">
-      <div>
+      <div class="count-price-wrapper_item">
         <label for="count">Count:</label>
         <input
           minLength="3"
@@ -24,7 +24,7 @@
           [class.invalid]="itemForm.get('count')?.invalid && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched || isSubmitted)"
         >
       </div>
-      <div>
+      <div class="count-price-wrapper_item">
         <label for="price">Price:</label>
         <input
           type="number"
