@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
-import { v4 as uuidv4 } from 'uuid'
-import { Router } from '@angular/router';
+import {v4 as uuidv4} from 'uuid'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-lista-towarow',
@@ -22,17 +22,16 @@ export class ListaTowarowComponent {
     this.listaTowarow.push({id: uuidv4(), ...item.value})
   }
   listaTowarowRemove = (itemId: string) => {
-    const newList = this.listaTowarow.filter((item) => {
+    this.listaTowarow = this.listaTowarow.filter((item) => {
       return item.id !== itemId
     })
-    this.listaTowarow = newList
   }
   onSubmit(){
     // @ts-ignore
     this.listaTowarowAdd(this.itemForm)
     console.log(this.listaTowarow)
     this.isSubmitted = true
-    this.itemForm.reset()
+    this.itemForm.reset({name: '', price: 1, count: 1})
   }
   navigateInvoice(){
     this.router.navigate(['invoice'], {state: this.listaTowarow} )

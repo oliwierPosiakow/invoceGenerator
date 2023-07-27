@@ -1,0 +1,27 @@
+$primary: #81819e;
+$background: #d1d1e4;
+$text: #f5f5f5;
+$accent: #ffe08a;
+
+.button{
+  background-color: #81819e;
+  padding: 1em .5em;
+  color: $text;
+  text-decoration: none;
+  border-radius: 12px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 2px 3px 5px #a5a5a5;
+  font-weight: 700;
+  &:hover{
+    color: $accent;
+  }
+  &:active{
+    transform: scale(.99);
+    background-color: #70708a;
+  }
+}
+.active-tab{
+  color: $accent !important;
+}

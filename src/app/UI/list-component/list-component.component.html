@@ -1,8 +1,10 @@
 <div class="item">
-  <p class="item_field">Name: {{item.name}}</p>
-  <p class="item_field">Count: {{item.count}}</p>
-  <p class="item_field">Price: ${{item.price}}</p>
-  <button class="item_delete">
+  <div class="item-fields-wrapper">
+    <p class="item_field">Name: {{item.name}}</p>
+    <p class="item_field">Count: {{item.count}}</p>
+    <p class="item_field">Price: ${{item.price}}</p>
+  </div>
+  <button class="item_delete" (click)="removeItem(item.id)">
     <mat-icon>delete</mat-icon>
   </button>
 </div>

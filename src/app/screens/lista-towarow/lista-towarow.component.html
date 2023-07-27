@@ -1,4 +1,5 @@
 <div class="lista">
+  <h3 class="lista_title">Order list</h3>
   <form class="lista_form" [formGroup]="itemForm" (ngSubmit)="onSubmit()">
     <label for="name">Name:</label>
     <input
@@ -10,35 +11,39 @@
       maxlength="30"
       [class.invalid]="itemForm.get('name')?.invalid && (itemForm.get('name')?.dirty || itemForm.get('name')?.touched || isSubmitted)"
     >
+    <div class="count-price-wrapper">
+      <div>
+        <label for="count">Count:</label>
+        <input
+          minLength="3"
+          type="number"
+          min="1"
+          max="100"
+          id="count"
+          formControlName="count"
+          [class.invalid]="itemForm.get('count')?.invalid && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched || isSubmitted)"
+        >
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input
+          type="number"
+          min="1"
+          max="1000000"
+          id="price"
+          formControlName="price"
+          [class.invalid]="itemForm.get('price')?.invalid && (itemForm.get('price')?.dirty || itemForm.get('price')?.touched || isSubmitted)"
+        >
+      </div>
+    </div>
 
-    <label for="count">Count:</label>
-    <input
-      minLength="3"
-      type="number"
-      min="1"
-      max="100"
-      id="count"
-      formControlName="count"
-      [class.invalid]="itemForm.get('count')?.invalid && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched || isSubmitted)"
-    >
-
-    <label for="price">Price:</label>
-    <input
-      type="number"
-      min="1"
-      max="1000000"
-      id="price"
-      formControlName="price"
-      [class.invalid]="itemForm.get('price')?.invalid && (itemForm.get('price')?.dirty || itemForm.get('price')?.touched || isSubmitted)"
-    >
-
-    <button type="submit">Add</button>
+    <button class="button" type="submit">Add</button>
   </form>
   <div class="order">
     <p class="info_msg" *ngIf="listaTowarow.length === 0">Add something to the list via form.</p>
     <div class="item" *ngFor ="let item of listaTowarow">
-      <app-list-component item=item></app-list-component>
+      <app-list-component [item]="item" (deleteItemEvent)="listaTowarowRemove($event)"></app-list-component>
     </div>
   </div>
-  <button (click)="navigateInvoice()" class="lista_submit">Get an Invoice</button>
+  <button (click)="navigateInvoice()" class="button">Get an Invoice</button>
 </div>
