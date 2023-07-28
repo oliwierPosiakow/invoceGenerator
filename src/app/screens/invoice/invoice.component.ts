@@ -36,14 +36,14 @@ export class InvoiceComponent implements OnInit{
     try {
       if(this.invoiceData){
         this.getJsonData()
-        setTimeout(() => {
-          this.loading = false
-        }, 1000)
       }
     }
     catch (e){
       console.log(e)
     }
+    setTimeout(() => {
+      this.loading = false
+    }, 1000)
   }
 }
 
