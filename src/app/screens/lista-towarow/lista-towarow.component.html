@@ -9,8 +9,12 @@
       formControlName="name"
       minlength="3"
       maxlength="30"
+      autocomplete="off"
     >
-    <div class="error-div" *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.errors && (itemForm.get('name')?.dirty || itemForm.get('name')?.touched)">
+    <div
+      class="error-div"
+      *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.errors && (itemForm.get('name')?.dirty || itemForm.get('name')?.touched)"
+    >
       <small *ngIf="itemForm.get('name')?.hasError('required')">
         This field is required.
       </small>
@@ -29,8 +33,12 @@
           max="100"
           id="count"
           formControlName="count"
+          autocomplete="off"
         >
-        <div class="error-div" *ngIf="itemForm.get('count')?.invalid && itemForm.get('count')?.errors && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched)">
+        <div
+          class="error-div"
+          *ngIf="itemForm.get('count')?.invalid && itemForm.get('count')?.errors && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched)"
+        >
           <small *ngIf="itemForm.get('count')?.hasError('required')">
             This field is required.
           </small>
@@ -50,8 +58,12 @@
           max="1000000"
           id="price"
           formControlName="price"
+          autocomplete="off"
         >
-        <div class="error-div" *ngIf="itemForm.get('price')?.invalid && itemForm.get('price')?.errors && (itemForm.get('price')?.dirty || itemForm.get('price')?.touched)">
+        <div
+          class="error-div"
+          *ngIf="itemForm.get('price')?.invalid && itemForm.get('price')?.errors && (itemForm.get('price')?.dirty || itemForm.get('price')?.touched)"
+        >
           <small class="span-invalid" *ngIf="itemForm.get('price')?.hasError('required')">
             This field is required.
           </small>
