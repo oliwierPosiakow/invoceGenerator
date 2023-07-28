@@ -1,4 +1,9 @@
 @import "src/app/styles/helper";
+:host{
+  height: 100%;
+  width: 100%;
+  margin-bottom: 70px;
+}
 .invoice{
   display: flex;
   justify-content: center;
@@ -30,6 +35,15 @@
     &_data{
       display: flex;
       flex-direction: column;
+      min-height: 0;
+      .data-wrapper{
+        display: flex;
+        flex-direction: column;
+        height: 60%;
+        overflow: scroll;
+        flex-grow: 1;
+
+      }
       .data_total{
         margin-top: 1em;
         align-self: flex-end;

@@ -1,13 +1,15 @@
 @import "src/app/styles/helper";
-.lista{
+:host{
+  height: 100%;
   width: 100%;
-  max-height: 700px;
   margin-bottom: 70px;
+}
+.lista{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: .5em;
-  overflow: hidden;
+  height: 100%;
   &_title{
     text-align: center;
   }
@@ -28,6 +30,7 @@
       justify-content: space-between;
       &_item{
         display: flex;
+        width: 45%;
         flex-direction: column;
         gap: .4em;
       }
@@ -40,19 +43,21 @@
     display: flex;
     flex-direction: column;
     margin: 1em 0;
-    flex: 1;
     gap: 1em;
-    min-height: 300px;
+    height: 100%;
     max-height: 300px;
     overflow: hidden;
     overflow-y: auto;
     .info_msg{
       text-align: center;
       color: #606060;
-      margin-top: 3em;
+      margin-top: 1em;
     }
   }
 }
-.invalid{
-  border: 1px solid red;
+input.ng-invalid.ng-touched{
+  border: 1px solid #e63946 !important;
+}
+.error-div > * {
+  color: #e63946;
 }

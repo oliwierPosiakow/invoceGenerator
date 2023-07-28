@@ -1,5 +1,5 @@
 <div class="lista">
-  <h3 class="lista_title">Order list</h3>
+  <h2 class="lista_title">Order list</h2>
   <form class="lista_form" [formGroup]="itemForm" (ngSubmit)="onSubmit()">
     <label for="name">Name:</label>
     <input
@@ -9,8 +9,16 @@
       formControlName="name"
       minlength="3"
       maxlength="30"
-      [class.invalid]="itemForm.get('name')?.invalid && (itemForm.get('name')?.dirty || itemForm.get('name')?.touched || isSubmitted)"
     >
+    <div class="error-div" *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.errors && (itemForm.get('name')?.dirty || itemForm.get('name')?.touched)">
+      <small *ngIf="itemForm.get('name')?.hasError('required')">
+        This field is required.
+      </small>
+      <small *ngIf="itemForm.get('name')?.hasError('minlength')">
+        At least 3 characters long.
+      </small>
+    </div>
+
     <div class="count-price-wrapper">
       <div class="count-price-wrapper_item">
         <label for="count">Count:</label>
@@ -21,8 +29,18 @@
           max="100"
           id="count"
           formControlName="count"
-          [class.invalid]="itemForm.get('count')?.invalid && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched || isSubmitted)"
         >
+        <div class="error-div" *ngIf="itemForm.get('count')?.invalid && itemForm.get('count')?.errors && (itemForm.get('count')?.dirty || itemForm.get('count')?.touched)">
+          <small *ngIf="itemForm.get('count')?.hasError('required')">
+            This field is required.
+          </small>
+          <small *ngIf="itemForm.get('count')?.hasError('min')">
+            Minimum value is 1.
+          </small>
+          <small *ngIf="itemForm.get('count')?.hasError('max')">
+            Maximum value is 100.
+          </small>
+        </div>
       </div>
       <div class="count-price-wrapper_item">
         <label for="price">Price:</label>
@@ -32,15 +50,25 @@
           max="1000000"
           id="price"
           formControlName="price"
-          [class.invalid]="itemForm.get('price')?.invalid && (itemForm.get('price')?.dirty || itemForm.get('price')?.touched || isSubmitted)"
         >
+        <div class="error-div" *ngIf="itemForm.get('price')?.invalid && itemForm.get('price')?.errors && (itemForm.get('price')?.dirty || itemForm.get('price')?.touched)">
+          <small class="span-invalid" *ngIf="itemForm.get('price')?.hasError('required')">
+            This field is required.
+          </small>
+          <small class="span-invalid" *ngIf="itemForm.get('price')?.hasError('min')">
+            Minimum value is 1.
+          </small>
+          <small class="span-invalid" *ngIf="itemForm.get('price')?.hasError('max')">
+            Maximum value is 1000000.
+          </small>
+        </div>
       </div>
     </div>
 
     <button class="button" type="submit">Add</button>
   </form>
   <div class="order">
-    <p class="info_msg" *ngIf="listaTowarow.length === 0">Add something to the list via form.</p>
+    <p class="info_msg" *ngIf="listaTowarow.length === 0">{{msg}}</p>
     <div class="item" *ngFor ="let item of listaTowarow">
       <app-list-component [type]="'list'" [item]="item" (deleteItemEvent)="listaTowarowRemove($event)"></app-list-component>
     </div>

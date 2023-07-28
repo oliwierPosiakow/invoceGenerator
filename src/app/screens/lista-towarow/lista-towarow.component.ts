@@ -11,7 +11,8 @@ import {Router} from '@angular/router';
 export class ListaTowarowComponent {
   constructor(private fb: FormBuilder, private router: Router) {}
   listaTowarow: {id: string, name: string, count: number, price: number}[] = []
-  isSubmitted = false
+  isValid = true
+  msg: string = 'Add something to the list via form.'
   //obsluga formularzu
   itemForm = this.fb.group({
     name: new FormControl('', [Validators.minLength(3), Validators.required]),
@@ -29,10 +30,12 @@ export class ListaTowarowComponent {
   }
   onSubmit(){
     // @ts-ignore
-    if(this.itemForm.value.name.length > 2 && this.itemForm.value.count > 0 && this.itemForm.value.price > 0){
+    if(this.itemForm.value.name.length > 2 && (this.itemForm.value.count > 0 && this.itemForm.value.count < 101) && (this.itemForm.value.price > 0 && this.itemForm.value.price < 1000001)){
       this.listaTowarowAdd(this.itemForm)
-      this.isSubmitted = true
       this.itemForm.reset({name: '', price: 1, count: 1})
+    }
+    else{
+      this.isValid = false
     }
   }
   //po kliknieciu 'Get an Invoice' funkcja przenosi do ekranu Invoice oraz podaje do niej dane, dzięki temu ładują sie one jedynie po kliknieciu przycisku wewnatrz ekranu Order List a nie po kliknięciu w nawigację
@@ -41,6 +44,7 @@ export class ListaTowarowComponent {
       this.router.navigate(['invoice'], {state: this.listaTowarow} )
     }
     else{
+       this.msg = 'No items added.'
       return
     }
   }

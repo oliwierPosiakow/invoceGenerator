@@ -1,5 +1,5 @@
 <div class="invoice">
-  <h3 class="invoice_title">Invoice</h3>
+  <h2 class="invoice_title">Invoice</h2>
   <p class="invoice_msg" *ngIf="!invoiceData && !loading">No data, complete your order <a routerLink="/">here.</a></p>
   <div class="invoice_loader" *ngIf="loading">
     <img src="assets/spinner.svg" alt="Loading">
@@ -13,8 +13,10 @@
       </div>
     </div>
     <div class="invoice-container_data">
-      <div *ngFor="let item of invoiceData" class="data_item">
-        <app-list-component [item]="item" [type]="'invoice'"></app-list-component>
+      <div class="data-wrapper">
+        <div *ngFor="let item of invoiceData" class="data_item">
+          <app-list-component [item]="item" [type]="'invoice'"></app-list-component>
+        </div>
       </div>
       <div class="data_total">
         <p>Total: ${{calculateFinalPriceAndCount(invoiceData).price}}</p>
