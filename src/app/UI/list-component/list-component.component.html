@@ -4,6 +4,7 @@
     <div class="count-price-wrapper">
       <p class="item_field count">Count: {{item.count}}</p>
       <p class="item_field price">Price: ${{item.price}}</p>
+      <p *ngIf="type === 'list'" class="item_field price">Total: ${{item.price * item.count}}</p>
     </div>
   </div>
   <button *ngIf="type === 'list'" class="item_delete" (click)="removeItem(item.id)">
