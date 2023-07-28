@@ -2,6 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 Project created in purpose of recriutment process for KLG Solutions.
+Live demo at [https://invoicegeneratorklg.netlify.app/].
 
 ## Development server
 
