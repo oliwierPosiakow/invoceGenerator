@@ -12,6 +12,7 @@ export class ListComponentComponent {
     count: 0,
     price: 0
   }
+  @Input() type: string = ''
   @Output() deleteItemEvent = new EventEmitter<string>()
   removeItem(id: string){
     this.deleteItemEvent.emit(id)

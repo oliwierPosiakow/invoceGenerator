@@ -1,11 +1,11 @@
 @import "src/app/styles/helper";
-.invoice_title{
-  text-align: center;
-}
 .invoice{
   display: flex;
   justify-content: center;
   flex-direction: column;
+  &_title{
+    text-align: center;
+  }
   &_msg{
     margin-top: 50%;
     text-align: center;
@@ -14,4 +14,30 @@
       font-weight: 700;
     }
   }
+  &_loader{
+    display: flex;
+    justify-content: center;
+    margin-top: 50%;
+    transform: translateY(-50%);
+  }
+  .invoice-container{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+    &_company{
+      margin: .5em 0;
+    }
+    &_data{
+      display: flex;
+      flex-direction: column;
+      .data_total{
+        margin-top: 1em;
+        align-self: flex-end;
+        & > *{
+          text-align: right;
+        }
+      }
+    }
+  }
 }
+

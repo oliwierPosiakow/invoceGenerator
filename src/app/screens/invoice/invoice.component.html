@@ -1,12 +1,25 @@
 <div class="invoice">
   <h3 class="invoice_title">Invoice</h3>
-  <p class="invoice_msg" *ngIf="!invoiceData">No data, complete your order <a routerLink="/">here.</a></p>
-  <div *ngIf="invoiceData" class="invoice_container">
-
-    <h4>{{companyData.name}}</h4>
-    <p>{{companyData.address}}</p>
-    <div>
-      {{companyData.phones.join(', ')}}
+  <p class="invoice_msg" *ngIf="!invoiceData && !loading">No data, complete your order <a routerLink="/">here.</a></p>
+  <div class="invoice_loader" *ngIf="loading">
+    <img src="assets/spinner.svg" alt="Loading">
+  </div>
+  <div *ngIf="invoiceData && companyData && !loading" class="invoice-container">
+    <div class="invoice-container_company">
+      <h4>{{companyData.name}}</h4>
+      <p>{{companyData.address}}</p>
+      <div>
+        tel. {{companyData.phones.join(', ')}}
+      </div>
+    </div>
+    <div class="invoice-container_data">
+      <div *ngFor="let item of invoiceData" class="data_item">
+        <app-list-component [item]="item" [type]="'invoice'"></app-list-component>
+      </div>
+      <div class="data_total">
+        <p>Total: ${{calculateFinalPriceAndCount(invoiceData).price}}</p>
+        <p>Number of Items: {{calculateFinalPriceAndCount(invoiceData).count}}</p>
+      </div>
     </div>
   </div>
 </div>

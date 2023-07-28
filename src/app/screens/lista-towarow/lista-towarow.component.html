@@ -42,7 +42,7 @@
   <div class="order">
     <p class="info_msg" *ngIf="listaTowarow.length === 0">Add something to the list via form.</p>
     <div class="item" *ngFor ="let item of listaTowarow">
-      <app-list-component [item]="item" (deleteItemEvent)="listaTowarowRemove($event)"></app-list-component>
+      <app-list-component [type]="'list'" [item]="item" (deleteItemEvent)="listaTowarowRemove($event)"></app-list-component>
     </div>
   </div>
   <button (click)="navigateInvoice()" class="button">Get an Invoice</button>

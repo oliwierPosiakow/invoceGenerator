@@ -6,7 +6,8 @@
       <p class="item_field price">Price: ${{item.price}}</p>
     </div>
   </div>
-  <button class="item_delete" (click)="removeItem(item.id)">
+  <button *ngIf="type === 'list'" class="item_delete" (click)="removeItem(item.id)">
     <mat-icon>delete</mat-icon>
   </button>
+  <p *ngIf="type === 'invoice'">${{item.count * item.price}}</p>
 </div>
