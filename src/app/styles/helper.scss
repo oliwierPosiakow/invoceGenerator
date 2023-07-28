@@ -1,18 +1,19 @@
-$primary: #81819e;
-$background: #d1d1e4;
-$text: #f5f5f5;
-$accent: #ffe08a;
+$primary: #219ebc;
+$background: #8ecae6;
+$text-dark: #023047;
+$text-light: #f5f5f5;
+$accent: #ffb703;
 
 .button{
-  background-color: #81819e;
+  background-color: $primary;
   padding: 1em .5em;
-  color: $text;
+  color: $text-light;
   text-decoration: none;
   border-radius: 12px;
   text-align: center;
   border: none;
   cursor: pointer;
-  box-shadow: 2px 3px 5px #a5a5a5;
+  box-shadow: 2px 3px 4px rgba(113, 113, 113, 0.45);
   font-weight: 700;
   &:hover{
     color: $accent;

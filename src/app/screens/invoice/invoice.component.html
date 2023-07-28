@@ -1,1 +1,14 @@
+<div class="invoice">
+  <h3 class="invoice_title">Invoice</h3>
+  <p class="invoice_msg" *ngIf="!invoiceData">No data, complete your order <a routerLink="/">here.</a></p>
+  <div *ngIf="invoiceData" class="invoice_container">
+
+    <h4>{{companyData.name}}</h4>
+    <p>{{companyData.address}}</p>
+    <div>
+      {{companyData.phones.join(', ')}}
+    </div>
+  </div>
+</div>
+
 

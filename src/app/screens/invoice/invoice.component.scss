@@ -1,0 +1,17 @@
+@import "src/app/styles/helper";
+.invoice_title{
+  text-align: center;
+}
+.invoice{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &_msg{
+    margin-top: 50%;
+    text-align: center;
+    a{
+      color: $text-dark;
+      font-weight: 700;
+    }
+  }
+}
