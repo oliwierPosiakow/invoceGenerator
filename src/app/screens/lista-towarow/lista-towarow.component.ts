@@ -16,8 +16,8 @@ export class ListaTowarowComponent {
   //obsluga formularzu
   itemForm = this.fb.group({
     name: new FormControl('', [Validators.minLength(3), Validators.required]),
-    count: new FormControl(1, [Validators.min(1), Validators.max(100), Validators.required]),
-    price: new FormControl(1, [Validators.min(1), Validators.max(1000000), Validators.required]),
+    count: new FormControl(1, [Validators.min(1), Validators.max(100), Validators.required, Validators.pattern("^[0-9]*$")]),
+    price: new FormControl(1, [Validators.min(1), Validators.max(1000000), Validators.required, Validators.pattern("^[0-9]*$")]),
   })
   //funkcje obslugujące dodawanie oraz odejmowanie do listy towarow
   listaTowarowAdd = (item: any) => {
@@ -29,8 +29,7 @@ export class ListaTowarowComponent {
     })
   }
   onSubmit(){
-    // @ts-ignore
-    if(this.itemForm.value.name.length > 2 && (this.itemForm.value.count > 0 && this.itemForm.value.count < 101) && (this.itemForm.value.price > 0 && this.itemForm.value.price < 1000001)){
+    if(this.itemForm.status === 'VALID'){
       this.listaTowarowAdd(this.itemForm)
       this.itemForm.reset({name: '', price: 1, count: 1})
     }

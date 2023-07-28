@@ -13,15 +13,13 @@
       </div>
     </div>
     <div class="invoice-container_data">
-      <div class="data-wrapper">
         <div *ngFor="let item of invoiceData" class="data_item">
           <app-list-component [item]="item" [type]="'invoice'"></app-list-component>
         </div>
-      </div>
-      <div class="data_total">
-        <p>Total: ${{calculateFinalPriceAndCount(invoiceData).price}}</p>
-        <p>Number of Items: {{calculateFinalPriceAndCount(invoiceData).count}}</p>
-      </div>
+    </div>
+    <div class="data_total">
+      <p>Total: ${{calculateFinalPriceAndCount(invoiceData).price}}</p>
+      <p>Number of Items: {{calculateFinalPriceAndCount(invoiceData).count}}</p>
     </div>
   </div>
 </div>

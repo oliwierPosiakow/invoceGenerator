@@ -10,6 +10,7 @@
       minlength="3"
       maxlength="30"
       autocomplete="off"
+      ng-pattern="/^[0-9]*$/"
     >
     <div
       class="error-div"
@@ -30,10 +31,12 @@
           minLength="3"
           type="number"
           min="1"
+          step="1"
           max="100"
           id="count"
           formControlName="count"
           autocomplete="off"
+          ng-pattern="/^\d{1,10}$/"
         >
         <div
           class="error-div"
@@ -48,6 +51,9 @@
           <small *ngIf="itemForm.get('count')?.hasError('max')">
             Maximum value is 100.
           </small>
+          <small class="span-invalid" *ngIf="itemForm.get('count')?.hasError('pattern')">
+            Only whole numbers.
+          </small>
         </div>
       </div>
       <div class="count-price-wrapper_item">
@@ -55,6 +61,7 @@
         <input
           type="number"
           min="1"
+          step="1"
           max="1000000"
           id="price"
           formControlName="price"
@@ -73,6 +80,9 @@
           <small class="span-invalid" *ngIf="itemForm.get('price')?.hasError('max')">
             Maximum value is 1000000.
           </small>
+          <small class="span-invalid" *ngIf="itemForm.get('price')?.hasError('pattern')">
+            Only whole numbers.
+          </small>
         </div>
       </div>
     </div>
@@ -85,5 +95,5 @@
       <app-list-component [type]="'list'" [item]="item" (deleteItemEvent)="listaTowarowRemove($event)"></app-list-component>
     </div>
   </div>
-  <button (click)="navigateInvoice()" class="button">Get an Invoice</button>
+  <button (click)="navigateInvoice()" class="get-invoice button">Get an Invoice</button>
 </div>

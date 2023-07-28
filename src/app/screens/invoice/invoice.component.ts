@@ -15,7 +15,6 @@ export class InvoiceComponent implements OnInit{
     this.invoiceData = this.router.getCurrentNavigation()?.extras.state
   }
   async getJsonData(){
-    this.loading = true
     await fetch('assets/company.json')
       .then(res => res.json())
       .then(data => {
@@ -33,10 +32,13 @@ export class InvoiceComponent implements OnInit{
     return {price: finalPrice, count: finalCount}
   }
   ngOnInit():void {
+    this.loading = true
     try {
       if(this.invoiceData){
         this.getJsonData()
-        this.loading = false
+        setTimeout(() => {
+          this.loading = false
+        }, 1000)
       }
     }
     catch (e){
